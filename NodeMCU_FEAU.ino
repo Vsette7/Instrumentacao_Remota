@@ -30,6 +30,10 @@
 const uint8_t scl = 14; //D5
 const uint8_t sda = 12; //D6
 
+extern int xAccl;
+extern int yAccl;
+extern int zAccl;
+
 //defines:
 //defines de id mqtt e tópicos para publicação e subscribe
 #define TOPICO_SUBSCRIBE "feau/sensor"     //tópico MQTT de escuta. 
@@ -251,7 +255,11 @@ void loop()
 
     live_status = !live_status;
 
-    MQTT.publish(topicLive, live_status ? "1" : "0");
+    if(yAccl > 100) MQTT.publish(TOPICO_SUBSCRIBE, "direita");else
+    if(yAccl < -300) MQTT.publish(TOPICO_SUBSCRIBE, "esquerda");else
+    MQTT.publish(TOPICO_SUBSCRIBE, "nivelado");
+    //MQTT.publish(topicLive, live_status ? "1" : "0");
+    
   }
     delay(1000);
     
