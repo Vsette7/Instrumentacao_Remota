@@ -36,7 +36,7 @@ extern int zAccl;
 
 //defines:
 //defines de id mqtt e tópicos para publicação e subscribe
-#define TOPICO_SUBSCRIBE "feau/sensor"     //tópico MQTT de escuta. 
+#define TOPICO_SUBSCRIBE "feau/acelerometro"     //tópico MQTT de escuta. 
 #define topicLive "feau/sensor/live"
                                    //ATENÇÃO: deve ser o mesmo tópico de publish utilizado na Raspberry PI!!!
                                                  
